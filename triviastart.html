@@ -88,8 +88,15 @@
 
                 userAns.push(buttonValue);
                 if (buttonValue == correctAns[correctAns.length - 1]){
-                    score ++;
+                      score ++;
+                    
                 }
+
+                
+
+
+
+
             
                 //   user Checker function to see if the answer is correct
                 //   stores 1 and 0 in an array which means whether ther results if correct or not
@@ -109,10 +116,10 @@
                     [allAnswers[i], allAnswers[j]] = [allAnswers[j], allAnswers[i]];
                 }
 
-                optionA.innerHTML = allAnswers[0];
-                optionB.innerHTML = allAnswers[1];
-                optionC.innerHTML = allAnswers[2];
-                optionD.innerHTML = allAnswers[3];
+                optionA.innerHTML = `A. ` + allAnswers[0];
+                optionB.innerHTML = `B. ` + allAnswers[1];
+                optionC.innerHTML = `C. ` + allAnswers[2];
+                optionD.innerHTML = `D. ` + allAnswers[3];
 
                 for (let k = 0; k < 4; k++) {
                     if (allAnswers[k] == correctAnswer) {
@@ -161,13 +168,19 @@
                         return;
                     }
                     //DISPLAYING QUESTION AND CHOICES FOR EACH INDEX
-                    question.innerHTML = index + `.  ` + gamePlay.results[index].question;
+                    setTimeout(() => {
+                        optionA.style.backgroundColor = "White";
+                        optionB.style.backgroundColor = "White";
+                        optionC.style.backgroundColor = "White";
+                        optionD.style.backgroundColor = "White";
+                        
+                    question.innerHTML = index + 1 + `.  ` + gamePlay.results[index].question;
                     randomizeAnswers(
                         gamePlay.results[index].correct_answer,
                         gamePlay.results[index].incorrect_answers[0],
                         gamePlay.results[index].incorrect_answers[1],
                         gamePlay.results[index].incorrect_answers[2]
-                    );
+                    );}, 2000);
 
                     // FUNCTION Event handler that moves to the next question
                     const handleClick = (answer) => {
@@ -180,6 +193,16 @@
                         buttonB.removeEventListener("click", handleButtonClickB);
                         buttonC.removeEventListener("click", handleButtonClickC);
                         buttonD.removeEventListener("click", handleButtonClickD);
+
+                        setTimeout(() => {
+                        optionA.style.backgroundColor = showAnswer("A");
+                        optionB.style.backgroundColor = showAnswer("B");
+                        optionC.style.backgroundColor = showAnswer("C");
+                        optionD.style.backgroundColor = showAnswer("D");
+                    }, 1000); 
+
+                    
+                    
                     };
 
                     // Define event listener functions for each button
@@ -194,6 +217,16 @@
                         buttonC.addEventListener("click", handleButtonClickC);
                         buttonD.addEventListener("click", handleButtonClickD);
                         
+                    const showAnswer = (letter) => {
+                        if (letter == correctAns[correctAns.length - 1]){
+                            return "Green";
+                        }
+                        else{
+                            return "Red";
+                        }
+
+                    }
+                    
                 };
 
                 // Start by displaying the first question
