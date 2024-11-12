@@ -12,6 +12,9 @@
             cursor: pointer;
             box-shadow: 1px 1px 5px 1px;
         }
+        body{
+          background-color: rgb(255, 234, 0);
+        }
     </style>
 </head>
 
@@ -19,15 +22,15 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-12 d-flex justify-content-center">
-              <h1 class="display-3">Centered Heading</h1>
+              <h1 class="display-3">Knowledge Quest</h1>
           </div>
-          <div class="col-12 d-flex justify-content-center">
-            <p class="fs-5 w-75">This is a prangre elk le rklej lkelrjejkrj erj e This is a prangre elk le rklej lkelrjejkrj erj e This is a prangre elk le rklej lkelrjejkrj erj e</p>
+          <div class="col-12 d-flex justify-content-center ">
+            <p class="fs-5 w-75 text-center">Knowledge Quest is a thrilling trivia game that challenges your mind and tests your knowledge across a wide range of subjects. Journey through diverse categories like history, science, literature, geography, and more, answering thought-provoking questions and solving intriguing puzzles.</p>
           </div>
         <div class="row">
             <div class="col">
                 <div class="card shadow p-5 rounded-5">
-                    <div class="row" id = "categoryContainer" >
+                    <div class="row px-5" id = "categoryContainer" >
                         
                         
                     </div>
@@ -40,14 +43,15 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
     <script>
-        let category = ["General Knowledge", "Science and Nature", "Computers", "Gadgets", "Mathematics", "Animals"];
-        let code = [9, 17, 18, 30, 19, 27];
-      
+        let category = ["General Knowledge", "Science and Nature", "Computers", "Gadgets", "Mathematics", "Animals", "Books", "Mythology", "Vehicles", "Cartoons and Animations"];
+        let code = [9, 17, 18, 30, 19, 27, 10, 20, 28, 32];
+       
         const goToCategory = async () => {
-          for (var i = 1; i < 6; i++) { // Loop 6 times
+          for (var i = 1; i <10; i++) { // Loop 6 times
             let container = document.getElementById("categoryContainer");
             let content = `
-              <div class="col-sm-12 col-md-4 col-lg-3 m-4">
+              <div class="col-sm-12 col-md-4 col-lg-3 m-2 justify-content-center">
+                
                 <a href="triviastart.html?category=`+ code[i] +`">
                   <div class="card p-5 text-center rounded-5 pkmnButton">
                     <div class="h3">${category[i]}</div>
